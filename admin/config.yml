@@ -1,0 +1,61 @@
+backend:
+  name: github
+  repo: mustafahar505-eng/PULSE.249_tech_website
+  branch: main
+  base_url: https://api.github.com
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+locale: en
+
+collections:
+  - name: "slides"
+    label: "Hero slides / News"
+    label_singular: "Slide"
+    folder: "content/slides"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Title (English)", name: "title_en", widget: "string" }
+      - { label: "Title (German)", name: "title_de", widget: "string" }
+      - { label: "Description (English)", name: "desc_en", widget: "text" }
+      - { label: "Description (German)", name: "desc_de", widget: "text" }
+      - { label: "Link (optional)", name: "link", widget: "string", required: false }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Category (EN)", name: "cat_en", widget: "string", required: false }
+      - { label: "Category (DE)", name: "cat_de", widget: "string", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+
+  - name: "events"
+    label: "Events"
+    label_singular: "Event"
+    folder: "content/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Type (EN)", name: "type_en", widget: "string" }
+      - { label: "Type (DE)", name: "type_de", widget: "string" }
+      - { label: "Title (English)", name: "title_en", widget: "string" }
+      - { label: "Title (German)", name: "title_de", widget: "string" }
+      - { label: "Description (English)", name: "desc_en", widget: "text" }
+      - { label: "Description (German)", name: "desc_de", widget: "text" }
+      - { label: "Link / YouTube", name: "link", widget: "string", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "content/settings.json"
+        fields:
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string", required: false }
+          - { label: "About (English)", name: "about_en", widget: "text" }
+          - { label: "About (German)", name: "about_de", widget: "text" }
